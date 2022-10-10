@@ -13,6 +13,11 @@
             string azureDevOpsOrganizationUrl = $"https://dev.azure.com/{azureOrganization}/";
             string credentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", "", personalAccessToken)));
 
+            QueryExecutor queryExecutor = new(azureOrganization, personalAccessToken);
+            await queryExecutor.PrintOpenBugsAsync(copyFromProject);
+
+            return;
+            
             // Create target project if it does not exist yet
             if (!await CheckCreateProject(copyToProject, copyFromProject, azureDevOpsOrganizationUrl, credentials))
             {
