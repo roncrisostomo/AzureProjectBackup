@@ -19,13 +19,13 @@ public class BackupCreator
             return;
         }
 
-        Copy iterations from source to target
+        // Copy iterations from source to target
         if (!await this.iterationCopier.CopyIterations(copyToProject, copyFromProject, azureDevOpsOrganizationUrl, credentials))
         {
             return;
         }
 
-        Copy work items from source to target
+        // Copy work items from source to target
         WorkItemCopier workItemCopier = new(copyToProject, copyFromProject, azureDevOpsOrganizationUrl, personalAccessToken);
         if (!await workItemCopier.CopyWorkItems())
         {
