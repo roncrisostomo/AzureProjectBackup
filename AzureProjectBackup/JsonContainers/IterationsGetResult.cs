@@ -1,13 +1,12 @@
-﻿using System.Text.Json.Serialization;
+﻿namespace AzureProjectBackup.JsonContainers;
 
-namespace AzureProjectBackup.JsonContainers
+using System.Text.Json.Serialization;
+
+public class IterationsGetResult
 {
-    public class IterationsGetResult
-    {
-        [JsonPropertyName("count")]
-        public int Count { get; set; } = 0;
+    [JsonPropertyName("count")]
+    public int Count { get; set; } = 0;
 
-        [JsonPropertyName("value")]
-        public List<IterationInfo> Value { get; set; } = new();
-    }
+    [JsonPropertyName("value")]
+    public List<IterationInfo> Value { get; set; } = new();
 }
